@@ -16,11 +16,24 @@ class ShoppingCart$Test extends FunSuite {
       equalsIgnoreCase("fruits.ShoppingCart.ShoppingCartStandard"))
 
   }
+
+  test("test apply for ShoppingStandard empty list  ") {
+    val testList = List()
+    val sc = ShoppingCart("", testList)
+    assert(sc.checkOut == 0.0)
+
+  }
   test("test apply for ShoppingOffer") {
     val testList = List(Apple, Orange)
     val sc = ShoppingCart("OFFER", testList)
     assert(sc.getClass.getCanonicalName.
       equalsIgnoreCase("fruits.ShoppingCart.ShoppingCartOffer"))
+  }
+  test("test apply for ShoppingOffer empty list  ") {
+    val testList = List()
+    val sc = ShoppingCart("OFFER", testList)
+    assert(sc.checkOut == 0.0)
+
   }
   test ("check sum for shopping standard ")
   {
