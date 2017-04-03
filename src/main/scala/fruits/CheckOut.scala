@@ -43,13 +43,13 @@ object ShoppingCart {
 
     override def checkOut = {
 
-      val prices = fruits.groupBy(identity).map {
+      val prices = fruits.groupBy(_.name).map {
 
-        case (f, l) if f.name == Apple.name =>
+        case (f, l) if f == Apple.name =>
           l.map(_.price).zipWithIndex
             .collect { case (e, i) if ((i + 1) % 2) != 0 => e }.sum
 
-        case (f, l) if f.name == Orange.name =>
+        case (f, l) if f == Orange.name =>
           l.map(_.price).zipWithIndex
             .collect { case (e, i) if ((i + 1) % 3) != 0 => e }.sum
       }
