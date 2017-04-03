@@ -50,13 +50,13 @@ object ShoppingCartOffer2 {
 
     override def checkOut:BigDecimal = {
 
-      val prices = fruits.groupBy(identity).map {
+      val prices = fruits.groupBy(_.name).map {
 
-        case (f, l) if f.name == Apple2.name =>
+        case (f, l) if f == Apple2.name =>
           l.map(_.price).zipWithIndex
             .collect { case (e, i) if ((i + 1) % 2) != 0 => e }.sum
 
-        case (f, l) if f.name == Orange2.name =>
+        case (f, l) if f == Orange2.name =>
           l.map(_.price).zipWithIndex
             .collect { case (e, i) if ((i + 1) % 3) != 0 => e }.sum
       }
