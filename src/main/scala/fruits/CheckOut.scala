@@ -23,7 +23,6 @@ object ShoppingCart {
 
   private case class ShoppingCartStandard
   (fruits: Iterable[Fruit]) extends ShoppingCart {
-
     /** Step 1
       *
       * @return sum of all elements
